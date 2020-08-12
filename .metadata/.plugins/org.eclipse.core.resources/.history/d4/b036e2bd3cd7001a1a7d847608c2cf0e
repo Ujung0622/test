@@ -1,0 +1,61 @@
+package sec03.ex01;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+/**
+ * Servlet implementation class JsonServlet1
+ */
+@WebServlet("/json")
+public class JsonServlet1 extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		dohandle(request, response);
+//		response.sendRedirect("test04/json5.jsp");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		dohandle(request, response);
+	}
+
+	private void dohandle(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter writer = response.getWriter();
+		String J_ID = request.getParameter("J_ID");
+		JSONObject totaObject = new JSONObject();
+		JSONArray memberArray = new JSONArray();
+		JSONObject memberInfo = new JSONObject();
+		jsonDAO dao = new jsonDAO();
+		JsonVO vo = new JsonVO();
+
+		List list = dao.listMembers(J_ID);
+		for (int i = 0; i < list.size(); i++) {
+		vo = (JsonVO) list.get(i);
+		memberInfo = new JSONObject();
+			memberInfo.put("ID", vo.getID());
+			memberInfo.put("PWD", vo.getPWD());
+			memberInfo.put("NAME", vo.getNAME());
+			memberInfo.put("EMAIL", vo.getEMAIL());
+			memberInfo.put("JOINDATE", vo.getJOINDATE());
+			list.add(memberInfo);
+			totaObject.put("members", list);
+			String jsonInfo = totaObject.toJSONString();
+			System.out.println(jsonInfo);
+			writer.print(jsonInfo);
+		}
+	}
+}

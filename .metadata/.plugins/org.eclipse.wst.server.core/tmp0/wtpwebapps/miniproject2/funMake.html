@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title></title>
+   <script>
+      // function make() {
+      //    let body = document.getElementById("body");
+      //    let tagName = document.getElementById("tagName").value;
+      //    let eleName = document.getElementById("eleName").value;
+      //    let eleContext = document.getElementById("eleContext").value;
+      //    let childrenTag = document.getElementById("childrenTag").value;
+
+      //    let newTagName = document.createElement(tagName);
+      //    newTagName.setAttribute(eleName, eleContext);
+      //    let fNewTag = body.appendChild(newTagName);
+
+      //    // li/{id, aaa}/text/li/(id, aaa)/text/li/(id, aaa)/text
+      //    // let fnewTagName = document.createElement(childrenTag);
+      //    // fNewTag.appendChild(fnewTagName);
+
+      //    if (childrenTag != "") {
+      //       let childArr = childrenTag.split("/");
+      //       for (let i = 0; i < childArr.length; i++) {
+      //          if ((i + 1) % 4 == 1) {
+      //             { }
+      //             fnewTagName = document.createElement(childArr[i]);
+      //          } else if ((i + 1) % 4 == 3) {
+      //             fnewTagName.setAttribute(childArr[i]);
+      //          } else if ((i + 1) % 4 == 0) {
+      //             fNewTag.createTextNode(childArr[i]);
+      //          }
+      //       }
+      //    }
+      // }
+
+function make(tagname, attributes, children){
+
+
+   
+
+}
+
+
+
+
+
+
+   </script>
+</head>
+
+<body id="body">
+   <table id="table">
+      <tr>
+         <td>TAG명</td>
+         <td><input type="text" id="tagName" placeholder="필수 입력 값"></td>
+      </tr>
+      <tr>
+         <td>속성명</td>
+         <td><input type="text" id="eleName"></td>
+      </tr>
+      <tr>
+         <td>속성내용</td>
+         <td><input type="text" id="eleContext"></td>
+      </tr>
+      <tr>
+         <td>자식요소</td>
+         <td><input type="text" size="50" placeholder="양식에 맞춰 제한 없이 작성 가능합니다. " id="childrenTag"></td>
+
+      </tr>
+      <tr>
+         <td>ex) 요소노드/{속성이름,속성내용}or{}/text노드</td>
+         <td><button onclick="make()">태그추가</button></td>
+      </tr>
+   </table>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+try{
+	try{
+		throw new Error("oops");
+	} catch(ex) {
+		console.error("inner", ex.message);
+		throw ex;
+	}finaly {console.log("finally");
+	}
+}
+catch(ex) {
+	console.error("outer", ex.message);
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

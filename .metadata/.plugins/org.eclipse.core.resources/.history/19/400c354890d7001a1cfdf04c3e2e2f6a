@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+var date = 10;
+
+function outer(){
+	this.data=20;
+	data =30;
+	
+	console.log("1. data1 = "+data,"<br>");
+	console.log("2. this.date = "+this.data,"<br>");
+	console.log("3. window.data = "+window.data,"<br>");
+	
+}
+outer();
+
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

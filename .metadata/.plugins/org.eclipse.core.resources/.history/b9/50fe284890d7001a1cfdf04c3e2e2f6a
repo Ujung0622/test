@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var o ={};
+o.prop = 'exists';
+
+
+function changeO(){
+	o.newprop = o.prop;
+	delete o.prop;
+}
+
+console.log(o.hasOwnProperty('prop'));
+changeO();
+console.log(o.hasOwnProperty('prop'));
+
+
+var o2 = {};
+o2.prop = 'exists';
+console.log(o2.hasOwnProperty('prop'));
+console.log(o2.hasOwnProperty('toString'));
+console.log(o2.hasOwnProperty('hasOwnProperty'));
+
+
+
+
+
+</script>
+
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // $(document).ready(function(){
+        //     $("button").click(function(){
+        //         $("ul li:first").hide();
+        //     });
+        // });
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $("ul li:first-child").hide();
+    });
+
+});
+        
+
+
+
+        </script>
+</head>
+<body>
+    <p>List 1:</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Tea</li>
+  </ul>
+  <p>List 2:</p>
+<ul>
+    <p>aaa</p>  
+<li>Coffee</li>
+<li>Milk</li>
+<li>Tea</li>
+</ul>
+<button>Click me</button>
+</body>
+</html>

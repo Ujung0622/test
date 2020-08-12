@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+
+// // item이란 클래스를 가지는 태그
+// // h1중 item이란 클래스를 가지는 태그
+// $(document).ready(function () {
+//     $('.item').css('color', 'orange');
+//     $('h1.item').css('background', 'red');
+// });
+
+
+// // 두가지 클래스를 모두 가지는 태그
+// $(document).ready(function () {
+//     $('.item.select').css('color', 'orange');
+// });
+
+
+
+// //body 바로 밑의 모든 자손
+// $(document).ready(function () {
+//     $('body > *').css('background', 'red');
+// });
+
+
+
+//body밑의 모든 자손
+// $(document).ready(function () {
+//     $('body *').css('color', 'red');
+// });
+
+</script>
+</head>
+<body>
+
+<h1 class="item">h1: test1</h1>
+<h1 class="item select">h1: test2</h1>
+<h2 class="item">h2: test3</h2>
+<h1>h1: test4</h1>
+<div>
+  <p>p: test5</p>
+  <h1>h1: test6</p>
+</div>
+
+</body>
+</html>

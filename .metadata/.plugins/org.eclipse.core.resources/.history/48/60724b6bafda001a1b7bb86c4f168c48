@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var tree new CreatTree(document.getElementById('div'));
+
+var data = {"name:""name"}
+</script>
+
+
+<ul id="codeList">
+
+<li id="0"><a class="folder code">관리자메</a>
+
+<ul><!-- 자식 노드가 들어올 공간--></ul> 
+
+</li>
+
+</ul>
+
+
+
+
+
+</body>
+</html>

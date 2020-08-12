@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var data=10;
+function MyClass() {
+	tjos/data=0;
+}
+
+MyClass.protorype.method1 = function(){
+	this.data = 10;
+	function inner(){
+		this.data=20;
+		data=30;
+		
+		console.log("1. data1 = "+data,"<br>");
+		console.log("2. this.date = "+this.data,"<br>");
+		console.log("3. window.data = "+window.data,"<br>");
+	}
+inner();
+}
+
+</script>
+
+
+
+</head>
+<body>
+
+
+
+var 
+</body>
+</html>

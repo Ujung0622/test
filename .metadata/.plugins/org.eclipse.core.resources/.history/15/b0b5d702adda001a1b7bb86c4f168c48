@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function Tree(name,child){
+    this.name = name;
+    this.children = child || [];
+    this.addNode = function (parent){
+        this.children = parent;
+    }
+    this.addChild = function (parentName){
+        this.children.push(new Tree(parentName));
+    }
+}
+var tree = new Tree("A"); // create a tree (or a portion of a tree) with root "A" and empty children
+tree.addChild("B1");   // A -> B1
+tree.addChild("B2");   // A -> B2
+var subTree1 = new Tree("C1"); // create a sub tree
+subTree1.addChild("D1");   // C1 -> D1
+subTree1.addChild("D2");   // C1 -> D2
+tree.children[0].addNode(subTree1);   // add this sub tree under A->B1
+// Tree now is:  A--> B1
+//                      C1
+//                        D1
+//                        D2
+//                    B2
+tree.children[1].addChild("C2");
+// Tree now is:  A--> B1
+//                      C1
+//                        D1
+//                        D2
+//                    B2
+//                      C2
+//tree.children[0].addChild("C4");
+// Tree now is:  A--> B1
+//                      C1
+//                        D1
+//                        D2
+//                      C4
+//                    B2
+//                      C2    
+console.log(JSON.stringify(tree));
+</script>
+</body>
+</html>

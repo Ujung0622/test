@@ -1,0 +1,9 @@
+INDEX VERSION 1.131
+/Users/sylvia_p/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/6297910.index
+/miniproject2/src
+/Users/sylvia_p/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3152421731.index
+/miniproject2/src
+/Users/sylvia_p/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/673480883.index
+/ass/src
+/Users/sylvia_p/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4019348393.index
+/ass/src

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <script>
+function CreatTree(){
+
+
+    
+}
+        var tree = new CreatTree(document.getElementById('div'));
+
+        data = { "name": "name", "href": "A링크", "target": "target", "icon": "", "child": [] };
+        var childA = { "name": "관리자메뉴", "href": "", "target": "", "icon": "", "child": [] };
+        //var data = document.createElement("ul");
+        tree.appendChild(data);
+        childA = document.createElement("li");
+        data.child.push(childA);
+
+        // data.appendChild(childA);
+
+        var childA1 = {
+            "name": "부하직원조회", "href": "http://w3.schools.com", "target": "_blank", "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTciclc1_YSzJ_QjOjrbqmQi5iokR182gAjig&usqp=CAU", "child": [
+
+            ]
+        };
+        var childA2 = { "name": "결재승인", "href": "http://w3.schools.com", "target": "_blank", "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTciclc1_YSzJ_QjOjrbqmQi5iokR182gAjig&usqp=CAU", "child": [] };
+
+        tree.data_init(data);
+        tree.createView();
+
+    </script>
+
+    <!-- <div id="div"></div> -->
+
+    <!-- <ul id="codeList">
+
+	<li id="child"><a class="folder code"></a>
+
+	<ul>
+        <div>
+            <li id="childA"><a class="folder code">관리자메뉴</a>
+            <ul>
+                <li id="childA1" >부하직원조회</li>
+                <li id="childA2">결재승인</li>
+                <li id="childA3">결재내역조회</li>
+            </ul> 
+            </li>
+        </div>
+
+        <div>
+            <li id="childB"><a class="folder code">직원메뉴</a>
+            <ul> 
+                <li id="childB1">결재신청</li>
+                <li id="childB2">급여정보조회</li>
+                <li id="childB3">인사정보조회</li>
+            </ul> 
+            </li>
+        </div>
+
+        <div>
+            <li id="childC"><a class="folder code">관리자메뉴</a>
+
+            <ul>
+                <li id="childC1">기준관리</li>
+                <li id="childC2">근무현황조회</li>
+                <li id="childC3">평가현황조회</li>
+            </ul> 
+            </li>
+        </div>
+
+    </ul>
+    </li>
+</ul> -->
+
+
+</body>
+
+</html>

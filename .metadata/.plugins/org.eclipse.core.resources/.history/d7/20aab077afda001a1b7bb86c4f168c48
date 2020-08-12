@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var tree new CreatTree(document.getElementById('div'));
+
+var data = {"name":"name","href":"A링크","target":"target	","icon:","child":[]};
+var childA = {"name":"관리자메뉴","href":"","target":"target":"","icon":"","child":[]};
+
+data.child.push(childA);
+
+var childA1 = {"name":"기준등록","href":"http://w3.schools.com","target":"_blank","icon":"","child":[]};
+var childA2 = {"name":"신청승","href":"http://w3.schools.com","target":"_blank","icon":"","child":[]};
+
+
+childA.child.push(childA1);
+childA.child.push(childA2);
+
+tree.data_init(data);
+tree.createView();
+
+</script>
+
+
+<ul id="codeList">
+
+<li id="0"><a class="folder code">관리자메</a>
+
+<ul><!-- 자식 노드가 들어올 공간--></ul> 
+
+</li>
+
+</ul>
+
+
+
+
+
+</body>
+</html>

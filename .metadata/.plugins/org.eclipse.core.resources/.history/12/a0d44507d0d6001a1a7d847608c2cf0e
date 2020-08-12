@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+var obj ={};
+Object.defindProperty(obj, 'name',{
+	value: '홍길동',
+	writable: true,
+	enumerable: true,
+	configurable: true,
+});
+
+
+obj.name ='OTHER';
+for(var i in obj){
+	console.log(i+':'+obj[i]);
+}
+
+
+
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

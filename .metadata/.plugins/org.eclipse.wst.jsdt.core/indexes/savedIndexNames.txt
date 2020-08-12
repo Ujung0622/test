@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+/Users/sylvia_p/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+428028540.index
+1284887197.index
+26870766.index
+898885060.index
+3562296522.index
+3942120904.index
+1562299344.index
+3010642060.index
+6297910.index

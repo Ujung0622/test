@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+.first{color: red;}
+.second{color:pink;}
+.third{ color: orange;}
+        </style>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function() {
+$(".me"),siblings().css({"border": "2px solid red"});
+//$(".me"),next().css({"border": "2px solid red"});
+//$(".me"),nextAll().css({"border": "2px solid red"});
+//$(".me"),prev().css({"border": "2px solid red"});
+//$(".me"),prevAll().css({"border": "2px solid red"});
+});
+    </script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul> ul(부모)
+        <li>li(형제)</li>
+        <li>li(형제)</li>
+        <li class="me">li(나)</li>
+        <li>li(형제)</li> 
+         <li>li(형제)</li>
+
+
+</ul>
+
+</body>
+</html>

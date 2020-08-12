@@ -1,0 +1,55 @@
+package sec03.ex01;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+public class jsonDAO {
+	private Connection con;
+	private PreparedStatement pstmt;
+	private DataSource dataFactory;
+	
+	public List listMembers(String J_ID) {
+		List list = new ArrayList();
+		try {
+			con = dataFactory.getConnection();
+			String query = "select * from t_member where like id='%"+J_ID+"%'";
+			System.out.println("prepareStatememt: " + query);
+			pstmt = con.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String id = rs.getString("id");
+				String pwd = rs.getString("pwd");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				String joinDate = rs.getString("joinDate");
+				jsonVO vo = new jsonVO();
+				vo.setID(id);
+				vo.setPWD(pwd);
+				vo.setNAME(name);
+				vo.setEMAIL(email);
+				vo.setJOINDATE(joinDate);
+				list.add(vo);
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+}

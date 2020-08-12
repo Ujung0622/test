@@ -1,0 +1,59 @@
+package sec03.ex01;
+
+import java.sql.Date;
+
+public class MemberVO {
+	private String id = "";
+	private String Cid = "";
+
+	private String pwd = "";
+	private String name = "";
+	
+	public MemberVO() {
+		System.out.println("MemberVO 생성자");
+	}
+	
+	
+	
+	
+	public MemberVO (String id2, String pwd, String name, String Cid) {
+		this.id = id2;
+		this.pwd = pwd;
+		this.name = name;
+		this.Cid = Cid;
+		
+	}
+	public String getCid() {
+		return Cid;
+	}
+	
+	public void setCid(String cid) {
+		Cid = cid;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
+}

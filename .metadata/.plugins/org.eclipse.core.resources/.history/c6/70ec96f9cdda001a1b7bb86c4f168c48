@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <div id="tree"></div>
+  <script src="../tree.js"></script>
+  <script src="example.js"></script>
+</body>
+</html>

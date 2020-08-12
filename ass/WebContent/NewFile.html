@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <head>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+    </head>
+
+<body>
+
+<ul id = "race">
+    <li>테란</li>
+    <li>프리토스</li>
+    <li>저그</li>
+</ul>
+<hr>
+   
+   <script>
+   var race = document.getElementById("race");
+   var childs = race.childNodes;
+   for(var i = 0; i<childs.length; i++){
+      if (childs[i].nodeName =="LI")
+       document.write(i+"번째 목록 = "+childs[i].firstChild.nodeValue+"<br>");
+   } 
+   </script>
+
+</body>
+
+</html>

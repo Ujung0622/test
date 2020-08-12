@@ -1,0 +1,22 @@
+<html>
+	<head>
+	</head>
+	<style>
+		#wrapper {width:500px; height:500px; overflow:auto; }
+		.childNode{ border:1px solid #ccc; width:calc(100% - 2px); height:30px; }
+		a { border:1px solid #ccc; background-color:#777; color:#eee; border-radius:10px; padding:3px 5px; cursor:pointer; }
+		a:hover { background-color:#444; color:#fff; }
+	</style>
+	<body>
+		<a _onclick="appendElement()">개체추가!</a>
+		<div id="wrapper"></div>
+	</body>
+	<script>
+		function appendElement(){
+			var appendEl = document.createElement('div');
+			appendEl.setAttribute('class','childNode');
+			appendEl.innerText = (document.getElementsByClassName('childNode').length+1) + '번째 div';
+			document.getElementById('wrapper').append(appendEl);
+		}
+	</script>
+</html>

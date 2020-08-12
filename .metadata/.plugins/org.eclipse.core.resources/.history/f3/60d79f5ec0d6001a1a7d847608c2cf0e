@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+$(function fn_myFunction(){
+	var _id = $("#J_ID").val();
+	if(_id ==''){
+		alert("ID입력하세요")
+		return;
+	}
+	$("#checkJson").click(function() {
+		var _jsonInfo='{"ID":"아이디","PWD":"비밀번호","NAME":"이름","EMAIL":"이메일","JOINDATE":"가입날짜"}'
+	$.ajax({
+		type:"post",
+    	async:true,
+		url:"${contextpath}/json",
+		data:{jsonInfo: _jasonInfo},
+		success:function (data, textStatus) { 
+		let jsonInfo = Json.parse(data);
+		let memberInfo = 
+	for(var i in jsonInfo.members){
+	memberInfo += "아이디: " + jsonInfo.members[i].ID+"<br>";
+	memberInfo += "비밀번호: " + jsonInfo.members[i].PWD+"<br>";
+	memberInfo += "이름: " + jsonInfo.members[i].NAME+"<br>";
+	memberInfo += "이메일: " + jsonInfo.members[i].EMAIL+"<br>";
+	memberInfo += "가입날짜: " + jsonInfo.members[i].JOINDATE+"<br>";
+	
+}
+	},
+	error:function(data, textStatus){
+		alert("에러가 발생했습니다.");
+	},
+	complete:function(data, textStatus) {
+	}
+});
+});
+});
+</script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="checkJson">
+		<input type="text" placeholder="ex)홍길동" name="J_ID"> <input
+			type="button" style="cursor: pointer" value="조회"
+			onclick="fn_myFunction()"><br>
+		<div id="output"></div>
+	</form>
+</body>
+</html>

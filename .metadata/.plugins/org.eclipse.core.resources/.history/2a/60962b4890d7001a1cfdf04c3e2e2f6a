@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function GrandParent(){
+	this.property1 = 'aa';
+}
+function Parent() {
+	this.property2='bb';
+}
+function Child(){
+	this.property3='cc';
+}
+Parent.prototype = new GrandParent();
+Child.prototype = new Parent();
+
+var child = new Child();
+
+console.log(GrandParent.prototype.isPrototypeOf(child)); //true
+
+
+
+</script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

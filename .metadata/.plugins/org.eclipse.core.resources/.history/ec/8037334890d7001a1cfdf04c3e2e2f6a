@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    // $(document).ready(function(){
+    //     $('input[type="text"]').val('Hello jQuery..!'); 
+    // });
+
+//특정 값과 일치하거나 뒤에 -으로 연결된 값이 따름
+    // $(document).ready(function(){
+    //     $('input[name|="tag"]').val('Hello jQuery..!'); 
+    // });
+
+// //특정값과 일치하는 단어가 있는 문서객체
+//     $(document).ready(function(){
+//         $('input[class~="buttonStyle"]').val('Hello jQuery..!'); 
+//     });
+
+// //속성 안의 값이 특정 값으로 시작하는 문서객체를 선택
+//     $(document).ready(function(){
+//         $('input[name^="inp"]').val('Hello jQuery..!'); 
+//     });
+
+// // 속성 안의 값이 특정 값으로 끝나는 문서객체를 선택
+//     $(document).ready(function(){
+//         $('input[name$="02"]').val('Hello jQuery..!'); 
+//     });
+
+// //   속성 안의 값이 특정 값을 포함하는 문서객체를 선택
+//     $(document).ready(function(){
+//         $('input[name*="pet"]').val('Hello jQuery..!'); 
+//     });
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = 'text' name='tag-pets'>
+    <input type = 'text' name='input02' name= 'skin buttonStyle top'>
+</body>
+</html>

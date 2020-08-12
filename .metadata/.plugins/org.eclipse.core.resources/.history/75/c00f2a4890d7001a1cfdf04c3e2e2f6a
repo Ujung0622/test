@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+var object = {name:'윤인성'};
+Object.defineProperty(object,'region',{
+    value:'서울특별시'
+})
+console.log(Object.keys(object));
+console.log(Object.getOwnPropertyNames(obj52ect));
+
+
+</script>
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

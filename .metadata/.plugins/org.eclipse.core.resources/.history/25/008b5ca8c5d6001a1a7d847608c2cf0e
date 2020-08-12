@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function divid(alpha, beta){
+	if(beta ==0) {
+		throw 'DivideByZeroException';
+	} else {
+		return alpha /beta;
+	}
+}
+
+try {
+	divide(10,0);
+	
+} catch(exeption){
+	alert("CATCH");
+}
+</script>
+
+</script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+var obj ={};
+Object.defineProperty(obj, 'name',{
+	// value: '홍길동',
+	// writable: true,
+	enumerable: true,
+	configurable: true,
+	
+	get:function(){
+		console.log('getter');
+		return value;
+	},
+	set:function(newValue){
+		console.log('setter');
+		value = newValue;
+	}
+});
+
+
+
+obj.name ='OTHER';
+for(var i in obj){
+	console.log(i+':'+obj[i]);
+}
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
