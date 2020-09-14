@@ -1,0 +1,149 @@
+<HTML>
+    <HEAD>
+    <meta charset="UTF-8">
+    <STYLE>
+    body
+    {
+       background-color: #FFFFFF;
+       color: #333333;
+       font-family: "굴림", "Verdana";
+       font-size:10pt;
+       line-height:150%;
+    }
+    table
+    {
+       color: #333333;
+       font-family: "굴림", "Verdana";
+       font-size:10pt;
+       line-height:150%;
+    }
+    A:link { font-size:10pt; font-family:"굴림";color:#565656; text-decoration:none; }
+    A:visited { font-size:10pt; font-family:"굴림";color:#565656; text-decoration:none;  }
+    A:active { font-size:10pt; font-family:"굴림";color:#FF6000; text-decoration:none; }
+    A:hover { font-size:10pt; font-family:"굴림";color:#FF6000;text-decoration:none; }
+    </STYLE>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+    function init(){
+        //createtree 생성후 div 로 아이디 받아옴
+       var tree = new CreateTree(document.getElementById('div'));
+       // 메뉴객체 생성
+       // name : a 태그에 나타나는 내용
+       // href : a 태그에 사용될 URL
+       // icon : 기본 아이콘 대신할 아이콘 URL
+       // child : 자식배열
+       //root객체, root객체는 실제로 보이지 않는다
+       var data = {"name":"name","href":"A링크","target":"target","icon":"","child":[]};
+       //자식개체를 하나 생성
+       var childA = {"name":"관리자메뉴","href":"","target":"","icon":"menu02.gif","child":[]};
+       var childB = {"name":"직원메뉴","href":"","target":"","icon":"menu02.gif","child":[]};
+       var childC = {"name":"관리자메뉴","href":"","target":"","icon":"menu02.gif","child":[]};
+       var childD = {"name":"임시메뉴","href":"","target":"","icon":"menu02.gif","child":[]};
+       //자식1를 자식 배열에 push
+       data.child.push(childA);
+       data.child.push(childB); 
+       data.child.push(childC); 
+       data.child.push(childD); 
+       //자식1의 하위개체를 생성
+       var childA1 = {"name":"부하직원조회","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childA2 = {"name":"결재승인","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childA3 = {"name":"결재내역조회","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childB1 = {"name":"결재신청","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childB2 = {"name":"급여정보조회","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childB3 = {"name":"인사정보조회","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childC1 = {"name":"기준관리","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childC2 = {"name":"근무현황조회","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childC3 = {"name":"평가현황조회","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+       var childD1 = {"name":"임시1","href":"https://www.w3schools.com","target":"_blank","icon":"menu01.gif","child":[]};
+     
+       //자식1의 하위객체 push
+       childA.child.push(childA1); 
+       childA.child.push(childA2);
+       childA.child.push(childA3);
+       childB.child.push(childB1); 
+       childB.child.push(childB2); 
+       childB.child.push(childB3);
+       childC.child.push(childC1);
+       childC.child.push(childC2);
+       childC.child.push(childC3);
+       childD.child.push(childD1);
+       //트리에 메뉴객체를 연결
+       tree.data_init(data);
+       //트리메뉴를 화면에 보여준다
+       tree.createView();   
+    }
+    //CreateTree에서 매개 변수 받아오기
+    function CreateTree(doc){
+          //데이터 있는 div 를 doc 에받아옴
+       var div = doc;
+    
+       this.data_init = function(data){     
+          for(var i in data.child){
+            // doc 에 img div 새로 생성
+            var newDiv = document.createElement("div");
+            var newImg = document.createElement("img");
+            // data 객체에 child 를 불러옴
+            var c = data.child[i];
+            newDiv.append(c.name);
+            console.log(c.name);
+            newDiv.setAttribute('id',"menu_"+i);
+            console.log("menu_"+i);
+            newDiv.setAttribute('href',c.href);
+            console.log(c.href);
+            newDiv.setAttribute('child',c.child);
+            console.log(c.child);
+            newImg.setAttribute('src',c.icon);
+            console.log(c.icon);
+            newDiv.prepend(newImg);
+            var c1 = c.child;
+            // 자식 배열불러와서
+             for(var j in c1){
+               var newDiv2 = document.createElement("div");
+               var newImg2 = document.createElement("img");
+               var A = document.createElement("A");
+               newDiv2.setAttribute('class','toggle'); //토글 될 메뉴들에 toggle 클래스명 추가
+               A.innerHTML = c1[j].name;
+               A.setAttribute('href',c1[j].href);
+               A.setAttribute('target',c1[j].target);
+               newImg2.setAttribute('src',c1[j].icon);
+               newDiv2.innerHTML="&nbsp;&nbsp;";
+               newDiv2.append(newImg2);
+               newDiv2.append(A);
+               newDiv.append(newDiv2);
+               
+             }
+            div.append(newDiv);
+          }
+          //토글속성 삽입을 위하여 생성
+          for(var i in data.child){
+              new toggleMenu(i);
+          }
+       }
+       //페이지 로딩시 토글메뉴 hide 처리
+       this.createView = function(){
+           $('.toggle').hide();
+       }
+    }
+    //아이콘 클릭시 토글아이콘 변경
+    function toggleImg(menu){
+        if($(menu).attr('src')=='menu02.gif'){
+             $(menu).attr('src', 'menu03.gif');
+         }else if($(menu).attr('src')=='menu03.gif'){
+             $(menu).attr('src', 'menu02.gif');
+        }
+    }
+    //클릭시 toggle클래스들에 토글기능 추가
+    function toggleMenu(index){
+        console.log(index);
+        $("#menu_"+index+">img").click(function(){    	 
+            toggleImg("#menu_"+index+">img");
+            $("#menu_"+index+">.toggle").toggle('slow');
+        });
+    }
+    </script>
+    </HEAD>
+    <BODY OnLoad="init()">
+       <DIV ID="div"></DIV>
+    
+    </BODY>
+    </HTML>

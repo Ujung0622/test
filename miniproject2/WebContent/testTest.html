@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body >
+    <!-- <input type ="button" id ="myBtn" value="Click"/> -->
+  <div onclick="checktarget(event)"> 
+    <span>click</span>  
+    </div>
+    <script>
+        function checktarget(event){
+            var ele = event.currentTarget;
+            console.log(ele);
+        }
+
+        // window.onload = function(){
+        //     document.getElementById('body').onclick = function(event){
+        //         console.log(event.currentTarget===document.body);
+        //         console.log(this === document.body);
+
+        //         console.log(event.target === document.getElementById("myBtn"));
+        //     }
+        // }
+    </script>
+    
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
+        <style>
+            body {
+                font-size: 9pt;
+                font-family: "굴림";
+            }
+            div, p, ul, li {
+
+            }
+            ul.menu {
+                padding: 10px;
+                list-style: none;
+                border: 1px #000 solid;
+            }
+            ul.menu li {
+                border: 1px #eeeeee solid;
+                margin: 10px;
+            }
+
+            li.select {
+                background-color: #ccc;
+            }
+        </style>
+   <script>
+    var tg;
+
+    window.onload = function(){ // 윈도우 열자마자 클릭 이벤트 부여 
+        document.getElementById('add').addEventListener('click', add);
+        document.getElementById('remove').addEventListener('click', remove);
+        document.getElementById('up').addEventListener('click', up);
+        document.getElementById('down').addEventListener('click', down);
+        document.getElementsByTagName('ul')[0].addEventListener('click', ul);
+    }
+    
+    function add(){ // 
+        var inputData = document.getElementById('menuName').value; 
+        var liNode = document.createElement('li'); // 요소노드 생성
+        var textnode = document.createTextNode(inputData); // 인풋테그 값 가져오기
+        liNode.appendChild(textnode); //인풋테그 값 텍스트노드로 붙이기 
+        var ulNode = document.getElementsByTagName('ul')[0]; // ul 테그 위치 가져오기
+        ulNode.appendChild(liNode); //텍스트 노드 붙은 요소노드 ul테그에 붙이기
+    }
+    
+    function remove(){ 
+        if(tg){ // 함수ul 에서 클릭한 태그의 값을 tg에 받아옴. 
+            tg.remove(); // 태그 지움.
+            tg = null; // 지운 후 tg 초기화
+        }
+        else alert('선택된 것이 없습니다');
+    }
+    
+    function up(){
+        if(tg){
+            if(tg.previousElementSibling){ // 위에 있는 형제 요소 가져오기
+                tg.parentNode.insertBefore(tg, tg.previousElementSibling);
+                // 클릭한 요소를 가져온 형제 요소의 위로 삽입
+                //target.after(target.nextElementSibling); // up: 위의 노드를 아래로
+            }
+            else alert('이동할 곳이 없습니다.');
+        }
+        else alert('클릭하세요.');
+    }
+    
+    function down(){
+        if(tg){
+            if(tg.nextElementSibling){ // 아래에 있는 형제 요소 가져오기
+                tg.parentNode.insertBefore(tg.nextElementSibling, tg);
+                // 클릭한 요소를 가져온 형제 요소의 아래로 삽입
+                //target.before(target.nextElementSibling); // down: 아래노드를 위로
+            }
+            else alert('이동할 곳이 없습니다.');
+        }
+        else alert('클릭하세요.');				
+    }
+    
+    function ul(event){ //요소를 직접 클릭했을 시
+        if(event.target.nodeName != 'LI') return; // 클릭한 요소가 li가 아니라면 속성 부여 없음
+        /*
+        var liNodes = document.querySelectorAll('ul li');
+        for(var i = 0; i < liNodes.length; i++){
+            liNodes[i].removeAttribute('class');
+        }*/
+        if(tg){
+            tg.removeAttribute('class'); // 클릭한 요소가 li면 클래스 속성 부여
+        }
+        
+        tg = event.target; // 타겟으로 위치 가져와서 tg 전역변수에 저장.
+        tg.className = 'select'; //클래스 이름 부여해서 스타일 변화.
+    }
+</script>
+        <!-- <script>
+        // window.onload = function(){
+
+
+
+            // document.getElementById("add").onclick = function(){
+            //   var menu = document.getElementsByClassName("menu"); // 인덱스 달아줘야 함??
+            //   let newTag = document.createElement('li');
+            //   let text = document.getElementById("menuName").value;
+            //   let newText = document.createTextNode(text);
+            //   menu.after(newText);
+            // }
+
+
+      
+
+            // var down = document.getElementByid("remove").onclick = function(){
+
+
+
+            // }
+
+
+            //     var down = document.getElementByid("up").onclick = function(){
+
+
+            //     }
+            //         var down = document.getElementByid("down").onclick = function(){
+
+
+
+            //         }
+
+        //     }
+        //     for (let i in down.children){
+        //         i.addEventListener("click", select);
+        //     }
+        // }
+        // function select(){
+        //     var menu = document.getElementsByClassName("menu");
+        //     for(let i in menu.children){
+        //         i.classList.remove("select");
+        //     }
+        //     this.classList.add("select");
+        // }
+
+ 
+
+        </script> -->
+    </head>
+
+    <body>
+        <div>
+            <input type="text" id="menuName" />
+            <button id="add">추가</button>
+            <button id="remove">삭제</button>
+            <button id="up">UP</button>
+            <button id="down">DOWN</button>
+        </div>
+        <ul class="menu">
+          <li>111</li>
+          <li>222</li>
+        </ul>
+    </body>
+
+</html>
